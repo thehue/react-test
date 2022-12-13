@@ -76,3 +76,18 @@ BDD를 사용한다면 요구사항을 구체적으로 관리하며 개발할 �
     - Roles documentation: [https://www.w3.org/TR/wai-aria/#role_definitions](https://www.w3.org/TR/wai-aria/#role_definitions)
       - div같은 의미없는 태그도 role 역할을 줄 수 있다.
       - button, a → built-in roles
+
+### Roles 디버깅을 위한 logRoles
+
+role속성을 갖고 있는 html 태그를 출력해준다.
+
+```tsx
+import React from "react";
+import { logRoles, render, screen } from "@testing-library/react";
+import App from "./App";
+
+test("button has correct initial color", () => {
+  const { container } = render(<App />);
+  logRoles(container);
+});
+```

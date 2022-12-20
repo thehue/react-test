@@ -6,18 +6,12 @@ function App() {
   const newButtonColor = buttonColor === 'red' ? 'blue' : 'red';
   const [buttonDisabled, setButtonDisabled] = useState(false);
 
-  function onClickButton(): void {
+  const onClickButton = (): void => {
     setButtonColor(newButtonColor);
-  }
+  };
 
   const onChangeCheckbox = (event: ChangeEvent<HTMLInputElement>): void => {
-    const { checked } = event.target;
-    if (checked) {
-      setButtonDisabled(true);
-      return;
-    }
-
-    setButtonDisabled(false);
+    setButtonDisabled(event.target.checked);
   };
 
   return (
@@ -29,7 +23,12 @@ function App() {
       >
         Change to {newButtonColor}
       </button>
-      <input type="checkbox" onChange={onChangeCheckbox} />
+      <input
+        type="checkbox"
+        id="disable-button-checkbox"
+        defaultChecked={buttonDisabled}
+        onChange={onChangeCheckbox}
+      />
     </div>
   );
 }

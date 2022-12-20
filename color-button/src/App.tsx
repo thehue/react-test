@@ -14,6 +14,7 @@ function App() {
       <button style={{ backgroundColor: buttonColor }} onClick={onClickButton}>
         Change to {newButtonColor}
       </button>
+      <input type="checkbox" />
     </div>
   );
 }

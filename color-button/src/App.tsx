@@ -1,17 +1,18 @@
-import React, { useState } from "react";
-import "./App.css";
+import React, { useState } from 'react';
+import './App.css';
 
 function App() {
-  const [color, setColor] = useState("red");
+  const [buttonColor, setButtonColor] = useState('red');
+  const newButtonColor = buttonColor === 'red' ? 'blue' : 'red';
 
   function onClickButton(): void {
-    setColor("blue");
+    setButtonColor(newButtonColor);
   }
 
   return (
     <div>
-      <button style={{ backgroundColor: `${color}` }} onClick={onClickButton}>
-        Change to {color === "red" ? "blue" : "red"}
+      <button style={{ backgroundColor: buttonColor }} onClick={onClickButton}>
+        Change to {newButtonColor}
       </button>
     </div>
   );

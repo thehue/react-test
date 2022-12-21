@@ -11,13 +11,14 @@ function App() {
   };
 
   const onChangeCheckbox = (event: ChangeEvent<HTMLInputElement>): void => {
-    setButtonDisabled(event.target.checked);
+    const { checked } = event.target;
+    setButtonDisabled(checked);
   };
 
   return (
     <div>
       <button
-        style={{ backgroundColor: buttonColor }}
+        style={{ backgroundColor: buttonDisabled ? 'gray' : buttonColor }}
         onClick={onClickButton}
         disabled={buttonDisabled}
       >

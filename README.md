@@ -91,3 +91,16 @@ test("button has correct initial color", () => {
   logRoles(container);
 });
 ```
+
+### Unit Testing Functions
+함수를 유닛 테스트 하는 방법
+
+* 어떤 함수를 Unit Test 해야 될까?
+  * 여러 컴포넌트에서 사용하는 함수
+  * 로직이 너무 복잡한 함수
+
+* Unit test if
+  * 기능 테스트로 테스트하기엔 로직이 너무 복잡한 경우
+  * edge case가 너무 많은 경우
+    * 컴포넌트를 실행해서 가능한 모든 에지 케이스에 대해 기능 테스트하는 것은 과하다.
+    * edge case: 하나의 매개 변수 값이 극단적인 최댓값 또는 최소값이어서 로직에 문제가 발생할 수 있는 경우

@@ -1,0 +1,17 @@
+{
+  "env": {
+    "node": true,
+    "browser": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "testing-library",
+    "jest-dom"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:testing-library/react",
+    "plugin:jest-dom/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ]
+}

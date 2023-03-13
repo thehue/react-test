@@ -104,3 +104,13 @@ test("button has correct initial color", () => {
   * edge case가 너무 많은 경우
     * 컴포넌트를 실행해서 가능한 모든 에지 케이스에 대해 기능 테스트하는 것은 과하다.
     * edge case: 하나의 매개 변수 값이 극단적인 최댓값 또는 최소값이어서 로직에 문제가 발생할 수 있는 경우
+
+### Testing Library userEvent(Popover 테스트)
+* 마우스오버 이벤트는 fireEvent도 괜찮지만 `@testing-library/user-event`를 사용하는 것이 낫다.
+* user-event는 버전 13, 14가 많이 다른데 `yarn list @testing-library/user-event` 명령어를 통해 버전을 확인할 수 있다.
+
+[**Convenience APIs**](https://testing-library.com/docs/user-event/convenience/)
+* fireEvent: DOM 이벤트를 디스패치 
+* userEvent: 모든 상호작용을 시뮬레이션 한다. -> 실제 사용자 상호 작용보다 완전한 시뮬레이션을 제공함(https://testing-library.com/docs/user-event/intro)
+  * userEvent를 사용할 때는 setup()을 사용해야한다.
+  * userEvent API는 항상 프로미스를 반환한다.(https://github.com/testing-library/user-event/releases/tag/v14.0.0)

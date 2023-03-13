@@ -12,31 +12,31 @@ describe('SummaryForm', () => {
   const renderSummaryForm = () => {
     render(<SummaryForm />);
     const checkbox = screen.getByRole('checkbox', {
-      name: 'I agree to Terms and Conditions',
+      name: /terms and conditions/i, // ignore case (대소문자 구분 안함)
     });
-    const button = screen.getByRole('button', {
-      name: 'Confirm Order',
+    const confirmButton = screen.getByRole('button', {
+      name: /confirm order/i,
     });
     return {
       checkbox,
-      button,
+      confirmButton,
     };
   };
 
-  test('Checkbox is unchecked and button is disabled by default', () => {
-    const { checkbox, button } = renderSummaryForm();
+  test('initial conditions', () => {
+    const { checkbox, confirmButton } = renderSummaryForm();
     expect(checkbox).not.toBeChecked();
-    expect(button).toBeDisabled();
+    expect(confirmButton).toBeDisabled();
   });
   test('Checkbox enables button on first click and disables on second click', () => {
-    const { checkbox, button } = renderSummaryForm();
+    const { checkbox, confirmButton } = renderSummaryForm();
 
     fireEvent.click(checkbox);
     expect(checkbox).toBeChecked();
-    expect(button).toBeEnabled();
+    expect(confirmButton).toBeEnabled();
 
     fireEvent.click(checkbox);
     expect(checkbox).not.toBeChecked();
-    expect(button).toBeDisabled();
+    expect(confirmButton).toBeDisabled();
   });
 });
